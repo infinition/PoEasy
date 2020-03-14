@@ -1,7 +1,7 @@
 # PoEasy
 # I'm not a programmer, i just created this tool because i needed it :) ) 
 # There is a French version and English version
-# Use by default the .exe version
+# Use by default the POEasy_English_V1.exe or POEasy_French_V1.exe version
 
 Hi everyone !
 It's a tool to create  keyboard shortcuts macros for Path of exile (And all other games and application)
