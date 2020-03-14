@@ -1,4 +1,5 @@
-# PoEasy (I'm not a programmer, i just created this tool because i needed it :) )
+# PoEasy
+# I'm not a programmer, i just created this tool because i needed it :) ) 
 # There is a French version and English version
 # Use by default the .exe version
 
