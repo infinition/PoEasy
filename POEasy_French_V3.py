@@ -1,0 +1,242 @@
+import keyboard
+from tkinter import *
+import time
+import random
+import pickle
+
+#Creation de la fenetre
+window = Tk()
+#Personnalisation de la fenetre
+window.title("POEasy")
+window.minsize(480, 360)
+window.config(background="black")
+
+
+
+#Fonction affichage selection TBas_______________________________________________________________
+                
+def returnEntryTb(arg=None):
+    global current_resultTb
+    global bas
+    result = myEntryTb.get()
+    resultLabelTb.config(text="Le délais aléatoire minimum de réponse sera de : " + result + " milliseconde")
+    current_resultTb = result
+    bas = int(current_resultTb)
+    print(current_resultTb)
+    myEntryTb.delete(0,END)
+
+    #Ajout du texte T
+label_titleTb = Label(window, text="Délais aléatoire de réponse minimum (en milliseconde) : ", font="Courrier", bg="black", fg='white')
+label_titleTb.pack()
+
+# Zone de saisie Tb
+myEntryTb = Entry(window, width=20)
+myEntryTb.focus()
+myEntryTb.bind("<Return>",returnEntryTb)
+myEntryTb.pack()
+
+# Bouton valider T
+enterEntryTb = Button(window, text= "Valider / Annuler", command=returnEntryTb)
+enterEntryTb.pack(fill=X)
+
+# Zone affichage de choix T
+
+resultLabelTb = Label(window, text = "")
+resultLabelTb.pack(fill=X)
+
+
+#Fonction affichage selection THaut_______________________________________________________________
+                
+def returnEntryTh(arg=None):
+    global current_resultTh
+    global haut
+    result = myEntryTh.get()
+    resultLabelTh.config(text="Le délais aléatoire maximum de réponse sera de : " + result + " milliseconde")
+    current_resultTh = result
+    haut = int(current_resultTh)
+    print(current_resultTh)
+    myEntryTh.delete(0,END)
+
+    #Ajout du texte T
+label_titleTh = Label(window, text="Délais aléatoire de réponse maximum (en milliseconde) : ", font="Courrier", bg="black", fg='white')
+label_titleTh.pack()
+
+# Zone de saisie Th
+myEntryTh = Entry(window, width=20)
+myEntryTh.focus()
+myEntryTh.bind("<Return>",returnEntryTh)
+myEntryTh.pack()
+
+# Bouton valider T
+enterEntryTh = Button(window, text= "Valider / Annuler", command=returnEntryTh)
+enterEntryTh.pack(fill=X)
+
+# Zone affichage de choix T
+
+resultLabelTh = Label(window, text = "")
+resultLabelTh.pack(fill=X)
+
+
+#Fonction affichage selection R1_______________________________________________________________
+                
+def returnEntryR1(arg=None):
+    global current_resultR1
+    result = myEntryR1.get()
+    resultLabelR1.config(text="Raccourci R1 selectionné : " + result)
+    current_resultR1 = result
+    print(current_resultR1)
+    myEntryR1.delete(0,END)
+
+    #Ajout du texte R1
+label_titleR1 = Label(window, text="Touche désignée pour le raccourci R1 : ", font="Courrier", bg="black", fg='white')
+label_titleR1.pack()
+
+# Zone de saisie R1
+myEntryR1 = Entry(window, width=20)
+myEntryR1.focus()
+myEntryR1.bind("<Return>",returnEntryR1)
+myEntryR1.pack()
+
+# Bouton valider R1
+enterEntryR1 = Button(window, text= "Valider / Annuler", command=returnEntryR1)
+enterEntryR1.pack(fill=X)
+
+# Zone affichage de choix R1
+
+resultLabelR1 = Label(window, text = "")
+resultLabelR1.pack(fill=X)
+
+
+# ______________________________________________________________________________________________
+#Fonction affichage selection R2
+def returnEntryR2(arg=None):
+    global current_resultR2
+    result = myEntryR2.get()
+    resultLabelR2.config(text="Raccourci R2 selectionné: " + result)
+    current_resultR2 = result
+    print(current_resultR2)
+    myEntryR2.delete(0,END)
+
+    #Ajout du texte R2
+label_titleR2 = Label(window, text="Touche désignée pour le raccourci R2 : ", font="Courrier", bg="black", fg='white')
+label_titleR2.pack()
+
+# Zone de saisie R2
+myEntryR2 = Entry(window, width=20)
+myEntryR2.focus()
+myEntryR2.bind("<Return>",returnEntryR1)
+myEntryR2.pack()
+
+# Bouton valider R2
+enterEntryR2 = Button(window, text= "Valider / Annuler", command=returnEntryR2)
+enterEntryR2.pack(fill=X)
+
+# Zone affichage de choix R2
+
+resultLabelR2 = Label(window, text = "")
+resultLabelR2.pack(fill=X)
+
+# ______________________________________________________________________________________________
+#Fonction affichage selection 1
+def returnEntry1(arg=None):
+    global current_result1
+    global current_result1split
+    global current_result1splitOK
+    result = myEntry1.get()
+    resultLabel1.config(text="Touche(s) définie(s) : " + result)
+    current_result1 = result
+    n = 1
+    current_result1split = [current_result1[i:i+n] for i in range(0, len(current_result1), n)]
+    current_result1splitOK = ', '.join(current_result1split)
+    print(current_result1splitOK)
+    myEntry1.delete(0,END)
+
+#Ajout du texte 1
+label_title1 = Label(window, text="Touche(s)  renvoyée(s) par le raccourci R1 ex (abc&è) : ", font="Courrier", bg="black", fg='white')
+label_title1.pack()
+
+# Zone de saisie 1
+myEntry1 = Entry(window, width=20)
+myEntry1.focus()
+myEntry1.bind("<Return>",returnEntry1)
+myEntry1.pack()
+
+# Bouton entrer 1
+enterEntry1 = Button(window, text= "Valider / Annuler", command=returnEntry1)
+enterEntry1.pack(fill=X)
+ 
+ # Zone affichage de choix 1
+resultLabel1 = Label(window, text = "")
+resultLabel1.pack(fill=X)
+#_______________________________________________________________________________________________________________
+
+#Fonction affichage selection 2
+def returnEntry2(arg=None):
+    global current_result2
+    global current_result2split
+    global current_result2splitOK
+    result = myEntry2.get()
+    resultLabel2.config(text="Touche(s) définie(s) : " + result)
+    current_result2 = result
+    n = 1
+    current_result2split = [current_result2[i:i+n] for i in range(0, len(current_result2), n)]
+    current_result2splitOK = ', '.join(current_result2split)
+    print(current_result2splitOK)
+    myEntry2.delete(0,END)
+
+#Ajout du texte 2
+label_title2 = Label(window, text="Touche(s)  renvoyée(s) par le raccourci R2 ex (abc&è) : ", font="Courrier", bg="black", fg='white')
+label_title2.pack()
+
+# Zone de saisie 2
+myEntry2 = Entry(window, width=20)
+myEntry2.focus()
+myEntry2.bind("<Return>",returnEntry2)
+myEntry2.pack()
+
+# Bouton entrer 2
+enterEntry2 = Button(window, text= "Valider / Annuler", command=returnEntry2)
+enterEntry2.pack(fill=X)
+ 
+ # Zone affichage de choix 2
+resultLabel2 = Label(window, text = "")
+resultLabel2.pack(fill=X)
+
+#_______LANCEMENT DU PROGRAMME______________________________________________________________________________________
+
+#Fonctions pour lancer le programme
+def lancement1():
+    keyboard.add_hotkey(current_resultR1, on_triggered1) #<-- Attache la fonction au raccourci "shortcurt1"
+    keyboard.add_hotkey(current_resultR2, on_triggered2) #<-- Attache la fonction au raccourci "shortcurt2" 
+    
+def on_triggered1(): 
+    time.sleep(random.randint(bas, haut)/1000)
+    keyboard.press_and_release(current_result1splitOK) #<-- Ecrit le contenu de current_result1
+
+#Fonctions pour Raccourci 2
+def on_triggered2(): 
+    time.sleep(random.randint(bas, haut)/1000)
+    keyboard.press_and_release(current_result2splitOK) #<-- Ecrit le contenu de current_result2
+
+
+def accept():
+    global accepted
+    accepted = True
+    keyboard.remove_all_hotkeys()
+
+
+
+
+#________BOUTON DE LANCEMENT________________________________________________________________________________________
+premier_bouton = Button(window, text="Lancer le programme (F10)", font="Courrier", bg="White", fg='black', command=lancement1)
+premier_bouton.pack(fill=X)
+
+
+#________BOUTON Effacer________________________________________________________________________________________
+
+effacer_bouton = Button(window, text="Effacer (F11)", font="Courrier", bg="White", fg='black', command=accept)
+effacer_bouton.pack(fill=X)
+
+
+
+window.mainloop()
