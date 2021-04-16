@@ -31,6 +31,7 @@ It simplified the  gameplay on PC Gamepad controllers as you can now assign 1 ke
  *TIPS
  
  To define F1 don't press the F1 key to define it, write literally "F1"  in the field.
+ f1 = The function keys. F1 to F20 are defined.
  
  Additionally, here's the list of the specific keys keywords :
  
@@ -51,7 +52,6 @@ down
 end
 enter
 esc
-f1 = The function keys. F1 to F20 are defined.
 home 
 insert 
 left
